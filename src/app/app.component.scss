@@ -1,0 +1,70 @@
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.incidentContainer {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #002266;
+  color: #ffffff;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.fieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.status > h3 {
+  background-color: white;
+  width: fit-content;
+  height: fit-content;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #002266;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #002266;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+.steps {
+  margin: 2rem;
+}
+
+.buttons {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  border-color: #ffffff;
+  border-radius: 5px;
+  // padding: 5px;
+}
