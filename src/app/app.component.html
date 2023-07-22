@@ -1,4 +1,4 @@
-<div class="steps">
+<div class="step">
   <p-steps
     [model]="items"
     [readonly]="false"
@@ -6,15 +6,17 @@
     (activeIndexChange)="onActiveIndexChange($event)"
   >
   </p-steps>
+</div>
+<div class="steps">
   <div class="stepsContainer">
     <div class="incidentContainer" *ngIf="activeIndex === 0">
       <h1 class="title">Triage Incident Details</h1>
-
+      <hr />
       <div class="fieldContainer">
         <div class="status">
           <h3>Status: {{ triageIncident.status.name }}</h3>
         </div>
-        <p-dropdown
+        <!-- <p-dropdown
           [options]="statusCodes"
           [(ngModel)]="triageIncident.status.name"
           [filter]="true"
@@ -22,84 +24,142 @@
           optionLabel="name"
           optionValue="name"
         >
-        </p-dropdown>
-        <label for="id">Incident ID</label>
-        <input
-          type="text"
-          pInputText
-          [(ngModel)]="triageIncident.id"
-          placeholder="Incident ID"
-        />
-        <label for="incidentName">Incident Name</label>
-        <input
-          type="text"
-          pInputText
-          [(ngModel)]="triageIncident.incidentName"
-          placeholder="Incident Name"
-        />
+        </p-dropdown> -->
+        <div class="forms">
+          <div class="row mb-2">
+            <div class="col-6">
+              <div class="input-c">
+                <label for="id">Incident ID</label>
+                <input
+                  type="text"
+                  pInputText
+                  [(ngModel)]="triageIncident.id"
+                  placeholder="Incident ID"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-c">
+                <label for="incidentStatus">Incident Status</label>
+                <input
+                  type="text"
+                  pInputText
+                  [(ngModel)]="triageIncident.status.name"
+                  placeholder="Incident Status"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6">
+              <div class="input-c">
+                <label for="incidentName">Incident Name</label>
+                <input
+                  type="text"
+                  pInputText
+                  [(ngModel)]="triageIncident.incidentName"
+                  placeholder="Incident Name"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-c">
+                <label for="siteName">Site Name</label>
+                <input
+                  type="text"
+                  pInputText
+                  [(ngModel)]="triageIncident.siteName"
+                  placeholder="Site Name"
+                />
+              </div>
+            </div>
+          </div>
 
-        <label for="siteName">Site Name</label>
-        <input
-          type="text"
-          pInputText
-          [(ngModel)]="triageIncident.siteName"
-          placeholder="Site Name"
-        />
-
-        <label for="incidentType">Incident Assigned To</label>
-        <p-dropdown
-          [options]="users"
-          [(ngModel)]="triageIncident.assignedTo.name"
-          [filter]="true"
-          placeholder="Assigned To"
-          optionLabel="name"
-          optionValue="name"
-        >
-        </p-dropdown>
-
-        <label for="incidentType">Incident Reported By</label>
-        <p-dropdown
-          [options]="users"
-          [(ngModel)]="triageIncident.reportedBy.name"
-          [filter]="true"
-          placeholder="Reported By"
-          optionLabel="name"
-          optionValue="name"
-        >
-        </p-dropdown>
-        <label for="incidentSummary">Incident Summary</label>
-        <textarea
-          rows="5"
-          cols="30"
-          pInputTextarea
-          [(ngModel)]="triageIncident.incidentSummary"
-          placeholder="Incident Summary"
-        >
-        </textarea>
-
-        <label for="incidentDetails">Incident Details</label>
-        <textarea
-          rows="5"
-          cols="30"
-          pInputTextarea
-          [(ngModel)]="triageIncident.incidentDetails"
-          placeholder="Incident Details"
-        >
-        </textarea>
+          <div class="row mb-2">
+            <div class="col-6">
+              <div class="input-c">
+                <label for="incidentType">Assigned To</label>
+                <p-dropdown
+                  [options]="users"
+                  [(ngModel)]="triageIncident.assignedTo.name"
+                  [filter]="true"
+                  placeholder="Assigned To"
+                  optionLabel="name"
+                  optionValue="name"
+                >
+                </p-dropdown>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="input-c">
+                <label for="incidentType">Reported By</label>
+                <p-dropdown
+                  [options]="users"
+                  [(ngModel)]="triageIncident.reportedBy.name"
+                  [filter]="true"
+                  placeholder="Reported By"
+                  optionLabel="name"
+                  optionValue="name"
+                >
+                </p-dropdown>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row mb-2">
+              <div class="col-12 mb-2">
+                <div class="input-c">
+                  <label for="incidentSummary" class="textarea-label"
+                    >Summary
+                  </label>
+                  <textarea
+                    rows="2"
+                    cols="30"
+                    pInputTextarea
+                    [(ngModel)]="triageIncident.incidentSummary"
+                    placeholder="Incident Summary"
+                    class="details-textarea"
+                  >
+                  </textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-12">
+                <div class="input-c">
+                  <label for="incidentDetails" class="textarea-label"
+                    >Details</label
+                  >
+                  <textarea
+                    rows="7"
+                    cols="30"
+                    pInputTextarea
+                    [(ngModel)]="triageIncident.incidentDetails"
+                    placeholder="Incident Details"
+                    class="details-textarea"
+                  >
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container" *ngIf="activeIndex === 1">
+      <h1 class="title">Triage Investigation SOP's</h1>
+      <hr />
       <div class="row">
         <div class="col-1">
           <div class="">
-            <div class="title">Status</div>
+            <div class="subtitle">Status</div>
           </div>
         </div>
         <div class="col-4">
-          <div class="title">Step</div>
+          <div class="subtitle">Step</div>
         </div>
         <div class="col-7">
-          <div class="title">Notes</div>
+          <div class="subtitle">Notes</div>
         </div>
         <div class="row mb-3" *ngFor="let data of dataSource; let i = index">
           <div class="col-1">
@@ -132,17 +192,19 @@
       </div>
     </div>
     <div class="container" *ngIf="activeIndex === 2">
+      <h1 class="title">Triage Fixing SOP's</h1>
+      <hr />
       <div class="row">
         <div class="col-1">
           <div class="">
-            <div class="title">Status</div>
+            <div class="subtitle">Status</div>
           </div>
         </div>
         <div class="col-4">
-          <div class="title">Step</div>
+          <div class="subtitle">Step</div>
         </div>
         <div class="col-7">
-          <div class="title">Notes</div>
+          <div class="subtitle">Notes</div>
         </div>
         <div class="row mb-3" *ngFor="let data of dataSource; let i = index">
           <div class="col-1">
@@ -174,10 +236,17 @@
         </div>
       </div>
     </div>
+    <div class="fixedContainer" *ngIf="activeIndex === 3">
+      <h1>
+        Incident ID: {{ triageIncident.id }} - {{ triageIncident.incidentName }}
+        has been successfully fixed.
+      </h1>
+    </div>
+
     <div class="buttons">
       <p-button
         label="Back"
-        *ngIf="activeIndex > 0"
+        *ngIf="activeIndex > 0 && activeIndex < 3"
         (onClick)="activeIndex = activeIndex - 1"
       >
       </p-button>
