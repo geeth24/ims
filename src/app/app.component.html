@@ -200,10 +200,10 @@
             <div class="subtitle">Status</div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-5">
           <div class="subtitle">Step</div>
         </div>
-        <div class="col-7">
+        <div class="col-6">
           <div class="subtitle">Notes</div>
         </div>
         <div class="row mb-3" *ngFor="let data of dataSource; let i = index">
@@ -217,16 +217,16 @@
               </p-checkbox>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-5">
             <div class="cell">
               {{ data.step }}
             </div>
           </div>
-          <div class="col-7">
+          <div class="col-6">
             <div class="cell">
               <textarea
                 class="form-control"
-                rows="5"
+                rows="2"
                 cols="50"
                 [(ngModel)]="data.notes"
               >
